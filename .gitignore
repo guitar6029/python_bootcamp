@@ -1,0 +1,17 @@
+# Python environments
+bootcampenv/
+venv/
+
+# Common cache & build folders
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.env
+.DS_Store
+
+bootcampenv/
+venv/
+__pycache__/
+*.py[cod]
