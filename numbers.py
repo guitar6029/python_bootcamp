@@ -21,3 +21,7 @@ print(50%2 == 0)
 
 #power 2 to the power of 5
 print(2**5)
+
+#### An integer has no decimals in it, 
+## a floating point number can display 
+## digits past the decimal point.
