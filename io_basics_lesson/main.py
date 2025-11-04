@@ -39,5 +39,3 @@ with open("./examplepath1/examplepath2/examplepath2.txt") as examplefile:
     examplepath_content = examplefile.read()
     print("with open way example, where the file is automatically closed")
     print(examplepath_content)
-    
-    
