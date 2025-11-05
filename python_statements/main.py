@@ -1,6 +1,4 @@
-from random import shuffle
-
-
+from random import shuffle, randint
 
 # statements such as if else , if else
 # if something:
@@ -37,8 +35,6 @@ else:
     
     
 ### loops
-
-
 
 #for loops example
 myvals = [1,2,3,4,5]
@@ -110,3 +106,25 @@ print(cards)
 ## rang with step of 2 and up to 10
 for num in range(0,11,2):
     print(num)
+
+mywords = "eating sandwiches"
+startstr = " "
+for character in mywords:
+    startstr += character
+    print(startstr)
+    
+    
+mylist1 = [1,2,3]    
+mylist2 = ["a,b,c", "d,e,f", "g,h,i"] 
+for i in zip(mylist1, mylist2):
+    print(i)
+    
+spaceman = ({"name": "John", "id": 12345})
+hasNameJohn = "name" in spaceman
+print(f"The spaceman has the name property : {hasNameJohn} ")
+
+
+# random number
+# 100 is inclusive
+myrand_num = randint(0,100)
+print(myrand_num)
