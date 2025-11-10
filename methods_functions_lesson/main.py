@@ -142,15 +142,12 @@ print(lesser_of_two_evens(5,9))
 
 def animal_crackers(text):
     mywords = text.split()
-    if mywords[0][0].lower() == mywords[1][0].lower():
-        return True
-    else:
-        return False
+    return mywords[0][0].lower() == mywords[1][0].lower()
     
-    
+print("ANIMAL CRACKERS FUNCTION")
 print(animal_crackers("Gitgo bitgo"))    # False
 print(animal_crackers("YellowTail yesMan"))  # True
-
+print("-------------END ANIMAL CRACKERS FUNCTION")
 
 # other side of seven, given a value return a value that is twice as far away on the other side of 7
 
@@ -161,6 +158,32 @@ def other_side_of_seven(val):
     return other_side
 
 print(other_side_of_seven(4))
+
+
+
+#makes twenty given two intergers. return True ifthe sum of the intergers is 20
+# or if one of the integers is 20, ifnot , return false
+# 20, 10 => True
+# 12,8 => True
+# 2,3 => False
+
+
+# def makes_twenty(n1, n2):
+#     if n1 == 20 or n2 == 20:
+#         return True
+#     elif n1 + n2 == 20:
+#         return True
+#     else:
+#         return False 
+
+def makes_twenty(n1,n2):
+    return n1 == 20 or n2 == 20 or (n1 + n2) == 20
+    
+print("MAKES TWENTY")    
+print(makes_twenty(20, 10))
+print(makes_twenty(12, 8))
+print(makes_twenty(2, 3))
+print("------------MAKES TWENTY")  
 
 
 #old macdonald : write a function that capitalized the first and fourth letters of a name
@@ -188,6 +211,7 @@ def master_yoda(mystring):
 print(master_yoda("I am home"))
 print(master_yoda("We are ready"))
 
+  
 
 #ALMOST THERE : Given an integer n , return True if n is within 10 of either 100 or 200
 # almost_there(90) => True
@@ -201,9 +225,9 @@ def almost_there(n):
 
 #more advanced
 def almost_there(numValue):
-    base100 = 100
-    base200 = 200
-    return abs(base100 - numValue) <= 10 or abs(base200 - numValue) <= 10
+    baseA = 100
+    baseB = 200
+    return abs(baseA - numValue) <= 10 or abs(baseB - numValue) <= 10
 
 
 print(almost_there(90))
@@ -221,4 +245,106 @@ def laughter(pattern, strval):
             count += 1
     return count
 
-print(laughter("ha", "hah3ahah3"))        
+print(laughter("ha", "hah3ahah3"))     
+
+#FIND 33
+#given a list of ints, return True if the array contains a 3 next to a 3 somewhere
+# has_33([1,3,3]) => True   
+# has_33([1,3,1,3]) => False   
+# has_33([3,1,3]) => False   
+
+def has33(mylist):
+    has33Val = False
+    for i in range(len(mylist) - 1 ):
+        if mylist[i] == 3 and mylist[i + 1] == 3:
+            has33Val = True
+            break
+    return has33Val
+
+### also 
+# def has33(mylist):
+#    return any(mylist[i] == 3 and mylist[i + 1] == 3 for i in range(len(mylist) - 1))
+#
+#
+#
+print("HAS 33")
+print(has33([3,3,1]))
+print("-------------HAS 33")
+
+#PAPER DOLL, Given a string , return a string where for every character in the original there are three characters
+
+def paper_doll(text):
+    mytripplestr = ""
+    for char in text:
+        mytripplestr += char * 3
+    return mytripplestr
+    
+
+print(paper_doll('Hello'))
+
+#BLACKJACK Given three integers between 1 and 11,
+# if their sum is less than or queal to 21,
+#return their sum. if their sum exceeds 21 and there's and eleven, 
+# reduce the total sum by 10.
+# finally , if the sum (even after adjustment) exceeds 21,
+# return 'BUST'
+
+
+def blackjack(a, b, c):
+    total = a + b + c
+    hasEleven = 11 in [a, b, c]
+
+    if total <= 21:
+        return total
+    elif hasEleven and total - 10 <= 21:
+        return total - 10
+    else:
+        return 'BUST'
+
+        
+print(blackjack(5,6,7)) # 18
+print(blackjack(9,9,9)) # BUST  
+print(blackjack(9,9,11)) # 19        
+
+
+#SUMMER of 69, return the sum of the numbers
+# in the array , except ignore sections of 
+# numbers startingwith a 6 and extending to the next 9 (every 6 will be followed by at least one 9), return 0 for no numbers
+def summer_69(mylist):
+    skip = False
+    total = 0
+    for i in mylist:
+        if i == 6:
+            skip = True
+            continue
+        if skip:
+            if i == 9:
+                skip = False
+                continue    
+        if skip == False:
+            total = total + i
+            print(f"skip is false , total is {total}")    
+            continue
+    return total        
+            
+print("SUMMER OF 69")
+print(summer_69([1,3,5]))  # 1, 3 ,5 = 9          
+print(summer_69([4,5,6,7,8,9]))  # 4,5 = 9          
+print("---------SUMMER OF 69")
+
+# spy game : write a function that takes a list of integers and returns True if it contains 007 in order 
+
+def spy_game(mylist):
+    mystr= ''
+    if mylist[0] == 7:
+        return False
+    else:
+        for i in mylist:
+            print(f'i {i}')
+            mystr += str(i)
+        print(f"my str : {mystr}")    
+    return False
+
+print(spy_game([1,2,4,0,0,7,5])) # true
+print(spy_game([1,0,2,4,0,5,7])) # true
+print(spy_game([1,7,2,0,4,5,0])) # false
