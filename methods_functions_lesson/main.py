@@ -335,16 +335,46 @@ print("---------SUMMER OF 69")
 # spy game : write a function that takes a list of integers and returns True if it contains 007 in order 
 
 def spy_game(mylist):
-    mystr= ''
+    
+    helper = [0,0,7]
     if mylist[0] == 7:
         return False
     else:
         for i in mylist:
+            if len(helper) > 0 and i == helper[0]:
+                #remove the first 0
+                helper.pop(0)
+                print(f'i == helper[0] {i}')
             print(f'i {i}')
-            mystr += str(i)
-        print(f"my str : {mystr}")    
-    return False
+
+        print(f"helper list : {helper}")
+    return len(helper) == 0
 
 print(spy_game([1,2,4,0,0,7,5])) # true
 print(spy_game([1,0,2,4,0,5,7])) # true
 print(spy_game([1,7,2,0,4,5,0])) # false
+
+# Count primes , write a function that returns the number of the prime 
+# that exist up to  and including a given number
+
+# A prime number is a natural number greater than 1 that has only two factors: 1 and itself. This means it cannot be formed by multiplying two smaller natural numbers. For example, numbers like 2, 3, 5, 7, and 11 are all prime numbers.
+
+def count_prime(num):
+    if num == 0 or num == 1:
+        return False
+    numOfPrimes = []
+    for nums in range(2,num):
+        isPrime = True
+        for div in range(2, nums):
+            if nums % div == 0:
+                isPrime = False
+                break
+        if isPrime:
+            numOfPrimes.append(nums)    
+        
+    print(f'Num of primes list {numOfPrimes}')
+    return len(numOfPrimes)     
+
+print("COUNT PRIME")
+print(f"{count_prime(10)}")
+print("______________COUNT PRIME")
