@@ -28,3 +28,12 @@ print(list(filter(check_even, check_nums)))
 square = lambda num: num ** 2
 
 print(square(2)) # 4
+
+
+cubed = lambda num: num ** 3
+
+print(cubed(3))
+
+getFirtChar = lambda text : text[0]
+
+print(getFirtChar('Lisa'))
