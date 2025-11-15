@@ -1,3 +1,5 @@
+acceptable_values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'q']
+
 turn = 'x'  # goes first
 
 # game board (what players see)
@@ -89,6 +91,14 @@ def game():
         print_board(boardCell)
 
         userinput = input("Enter a cell number (1-9) or 'q' to quit:\n")
+        
+        # check if input is valid and part of the aceeptable array
+        while userinput not in acceptable_values:
+            # ask for input again
+            print("The value is not accepted, please enter 1 - 9 , or q to quit")
+            userinput = input("Enter a cell number (1-9) or 'q' to quit:\n")
+
+
 
         if userinput == 'q':
             print("Quitting game.")
