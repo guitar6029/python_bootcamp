@@ -105,15 +105,15 @@ class Guitar():
         self._price = price
         self._year = year
     @property
-    def number_of_strings(self):
+    def num_strings(self):
         return self._num_strings
-    @property
-    def price(self):
-        return self._price
-    
     @property
     def type_guitar(self):
         return self._type_guitar
+    
+    @property
+    def price(self):
+        return self._price
     
     @property
     def year(self):
@@ -122,19 +122,36 @@ class Guitar():
     def play_sound(self):
         return ("Strumming a guitar")
     
+    def __str__(self):
+        return f"# of strings : {self._num_strings}\nType: {self._type_guitar}\nYear: {self._year}\nPrice: {self._price}\n"
+    
+    def __len__(self):
+        return self._num_strings
+    def __eq__(self, other):
+        return (self._year == other.year and self._num_strings == other.num_strings and self._price == other.price)
+    
 class Gibson(Guitar):
     def __init__(self, brand, num_strings, type_guitar, price, year):
         super().__init__(num_strings, type_guitar, price, year)
         self._brand = brand
-       
+        
     @property
     def brand(self):
         return self._brand
 
     def play_sound(self):
         return (f"{self.brand} : You cant play Stairway to Heaven here!")    
+    
+    def __str__(self):
+        guitar_properties = super().__str__()
+        return f"{guitar_properties}Brand: {self.brand}"   
+    
 
 les_paul_custom = Gibson('Gibson', 6, 'electric', 2699, 2024)
+firebird_gold = Gibson('Gibson', 6, 'electric', 2699, 2024)
 print(les_paul_custom.brand)
 print(les_paul_custom.year)
 print(les_paul_custom.play_sound())
+print(les_paul_custom)
+print(len(les_paul_custom))
+print(les_paul_custom == firebird_gold)
