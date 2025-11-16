@@ -64,3 +64,77 @@ class Dog(Animal):
 
 mydog = Dog()
 print(mydog.who_am_i())
+
+
+
+#polymorphism
+class Dog():
+    def __init__(self,name):
+        self.name = name
+    def speak(self):
+        return self.name + " says woof!"
+    
+
+
+
+class Cat():
+    def __init__(self,name):
+        self.name = name
+    def speak(self):
+        return self.name + " says meow!"
+
+
+niko = Dog("niko")        
+felix = Cat("felix") 
+
+print(niko.speak())
+print(felix.speak())
+
+
+
+for pet in [niko, felix]:
+    print(type(pet))
+    print(type(pet.speak()))
+
+
+
+class Guitar():
+    def __init__(self, num_strings, type_guitar, price, year):
+        self._num_strings = num_strings
+        self._type_guitar = type_guitar
+        self._price = price
+        self._year = year
+    @property
+    def number_of_strings(self):
+        return self._num_strings
+    @property
+    def price(self):
+        return self._price
+    
+    @property
+    def type_guitar(self):
+        return self._type_guitar
+    
+    @property
+    def year(self):
+        return self._year
+    
+    def play_sound(self):
+        return ("Strumming a guitar")
+    
+class Gibson(Guitar):
+    def __init__(self, brand, num_strings, type_guitar, price, year):
+        super().__init__(num_strings, type_guitar, price, year)
+        self._brand = brand
+       
+    @property
+    def brand(self):
+        return self._brand
+
+    def play_sound(self):
+        return (f"{self.brand} : You cant play Stairway to Heaven here!")    
+
+les_paul_custom = Gibson('Gibson', 6, 'electric', 2699, 2024)
+print(les_paul_custom.brand)
+print(les_paul_custom.year)
+print(les_paul_custom.play_sound())
