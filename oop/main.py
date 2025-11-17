@@ -130,6 +130,9 @@ class Guitar():
     def __eq__(self, other):
         return (self._year == other.year and self._num_strings == other.num_strings and self._price == other.price)
     
+    def __del__(self):
+        print(f"Guitar object has been deleted.")
+
 class Gibson(Guitar):
     def __init__(self, brand, num_strings, type_guitar, price, year):
         super().__init__(num_strings, type_guitar, price, year)
